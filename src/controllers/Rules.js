@@ -1,15 +1,15 @@
 //Parsing
 function parseRules(data) {
   const regexRules = /^((\d+\.\d+[\w]?[.]?)\s(.*))/gm;
-  var matches = [];
-  var match = regexRules.exec(data);
-  console.log(match);
-  while (match != null) {
-    matches.push({ number: match[1], text: match[2] });
-    match = regexRules.exec(data);
+  var rules = [];
+  var rule = regexRules.exec(data);
+  console.log(rule);
+  while (rule != null) {
+    rules.push({ id: rule[1], desc: rule[2] });
+    rule = regexRules.exec(data);
   }
-  console.log(matches);
-  return matches;
+  console.log(rules);
+  return rules;
 }
 
 export { parseRules };

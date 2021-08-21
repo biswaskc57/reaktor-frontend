@@ -15,9 +15,9 @@ function App() {
 
   async function getText(url) {
     const textData = (await fetch(url)).text();
-    console.log(textData);
     return textData;
   }
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getText(url);
@@ -34,7 +34,11 @@ function App() {
 
   return (
     <div>
-      <p>hello world</p>
+      <ol>
+        {chapters.map((chapter) => (
+          <li>{chapter.desc}</li>
+        ))}
+      </ol>
     </div>
   );
 }

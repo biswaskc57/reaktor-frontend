@@ -1,12 +1,12 @@
 function parseSubChapters(data) {
   const regexChapters = /^\r\n(\d+)\.\s(.*)\r\n$/gm;
-  var matches = [];
-  var match = regexChapters.exec(data);
-  while (match != null) {
-    matches.push({ number: match[1], text: match[2] });
-    match = regexChapters.exec(data);
+  var subChapters = [];
+  var subChapter = regexChapters.exec(data);
+  while (subChapter != null) {
+    subChapters.push({ number: subChapter[1], text: subChapter[2] });
+    subChapter = regexChapters.exec(data);
   }
-  return matches;
+  return subChapters;
 }
 
 export { parseSubChapters };

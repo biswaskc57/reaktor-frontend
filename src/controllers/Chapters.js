@@ -1,13 +1,15 @@
 function parseChapters(data) {
   const regexChapters = /^\r\n(\d)\.\s(.*)\r\n$/gm;
-  var matches = [];
-  var match = regexChapters.exec(data);
-  console.log(match);
-  while (match != null) {
-    matches.push({ number: match[1], text: match[2] });
-    match = regexChapters.exec(data);
+  var chapters = [];
+  var chapter = regexChapters.exec(data);
+
+  while (chapter != null) {
+    chapters.push({ id: chapter[1], desc: chapter[2] });
+    chapter = regexChapters.exec(data);
   }
-  return matches;
+  console.log(chapters);
+  console.log(chapters[0].id);
+  return chapters;
 }
 
 export { parseChapters };
