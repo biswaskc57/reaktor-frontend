@@ -32,6 +32,11 @@ function App() {
   console.log(chapters);
   console.log(subChapters);
 
+  /*const subChaptersTest = rules.map(
+    (rule) => rule.number.split(0, 1) === chapters[0].id
+  );
+  console.log(subChaptersTest);*/
+
   return (
     <div>
       <ol>
