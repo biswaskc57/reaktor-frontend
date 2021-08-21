@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState, useEffect } from "react";
+import "./App.css";
+import { parseRules } from "./controllers/Rules";
+import { parseSubChapters } from "./controllers/Subchapters";
+import { parseChapters } from "./controllers/Chapters";
 
 function App() {
+  const [chapters, setChapters] = useState([]);
+  const [subChapters, setSubChapters] = useState([]);
+  const [rules, setRules] = useState([]);
+
+  const url =
+    "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
+
+  async function getText(url) {
+    const textData = (await fetch(url)).text();
+    console.log(textData);
+    return textData;
+  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getText(url);
+      setRules(parseRules(data));
+      setChapters(parseChapters(data));
+      setSubChapters(parseSubChapters(data));
+    };
+    fetchData();
+  }, []);
+
+  console.log(rules);
+  console.log(chapters);
+  console.log(subChapters);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>hello world</p>
     </div>
   );
 }
