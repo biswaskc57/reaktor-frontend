@@ -5,7 +5,7 @@ function parseRules(data) {
   var rule = regexRules.exec(data);
   console.log(rule);
   while (rule != null) {
-    rules.push({ id: rule[1], desc: rule[2] });
+    rules.push({ id: rule[2], desc: rule[3] });
     rule = regexRules.exec(data);
   }
   console.log(rules);

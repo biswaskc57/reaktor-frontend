@@ -32,10 +32,14 @@ function App() {
   console.log(chapters);
   console.log(subChapters);
 
-  /*const subChaptersTest = rules.map(
-    (rule) => rule.number.split(0, 1) === chapters[0].id
-  );
-  console.log(subChaptersTest);*/
+  if (chapters[0] !== undefined) {
+    const subChaptersTest = rules.filter(
+      (rule) => rule.id.slice(0, 1)[0] === chapters[0].id
+    );
+    console.log(subChaptersTest);
+    console.log(rules[0].id.split(0, 1)[0]);
+    console.log(chapters[0].id);
+  }
 
   return (
     <div>

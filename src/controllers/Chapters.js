@@ -8,7 +8,7 @@ function parseChapters(data) {
     chapter = regexChapters.exec(data);
   }
   console.log(chapters);
-  console.log(chapters[0].id);
+
   return chapters;
 }
 
