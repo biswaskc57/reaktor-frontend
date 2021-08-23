@@ -57,8 +57,11 @@ function App() {
 
   return (
     <div>
-      <Contents contents={contents} chapters={chapters} />
-      <h1>Hello world</h1>
+      <ol>
+        {contents.map((title) => (
+          <Contents contents={contents} chapters={chapters} title={title} />
+        ))}
+      </ol>
     </div>
   );
 }
