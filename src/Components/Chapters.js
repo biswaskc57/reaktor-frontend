@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-export default function Rules({ chapter }) {
+export default function Chapters({ chapter }) {
   const [show, setshow] = useState(false);
   const chapterList = chapter;
   console.log(chapterList);
