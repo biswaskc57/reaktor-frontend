@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
-import Rules from "./Components/Rules";
+
 import Chapters from "./Components/Chapters";
 import Contents from "./Components/Contents";
 import { parseRules } from "./controllers/Rules";
@@ -52,6 +52,7 @@ function App() {
   return (
     <div>
       <Contents contents={contents} chapters={chapters} />
+      <h1>Hello world</h1>
     </div>
   );
 }
