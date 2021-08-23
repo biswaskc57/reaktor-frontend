@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
+import Rules from "./Components/Rules";
 import { parseRules } from "./controllers/Rules";
 import { parseSubRules } from "./controllers/Subrules";
 import { parseSubChapters } from "./controllers/Subchapters";
@@ -40,14 +41,14 @@ function App() {
   console.log(chapters);
   console.log(subChapters);
 
-  const ruleHandler = (id) => {
+  function ruleHandler(id) {
     const subChaptersTest = subChapters.filter(
-      (rule) => rule.id.slice(0, 1)[0] === id
+      (chapter) => chapter.id.slice(0, 1)[0] === id
     );
     console.log(subChaptersTest);
-    console.log(rules[0].id.split(0, 1)[0]);
-    console.log(chapters[0].id);
-  };
+
+    console.log(id);
+  }
 
   /*if (on === true) {
     const subChaptersTest = subChapters.filter(
@@ -64,7 +65,7 @@ function App() {
         {chapters.map((chapter) => (
           <li>
             {chapter.desc}{" "}
-            <button onClick={ruleHandler(chapter.id)}>show rules</button>
+            <button onClick={() => ruleHandler(chapter.id)}>show rules</button>
           </li>
         ))}
       </ol>
