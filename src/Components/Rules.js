@@ -1,5 +1,7 @@
+import { Table, TableCell, TableRow } from "@material-ui/core";
 import React from "react";
 import { useState } from "react";
+
 export default function Rules({ chapter }) {
   const [show, setshow] = useState(false);
   const chapterList = chapter;
@@ -9,13 +11,15 @@ export default function Rules({ chapter }) {
   else
     return (
       <div>
-        <ul>
+        <Table>
           {chapterList.map((rules) => (
-            <li>
-              {rules.id}. {rules.desc}
-            </li>
+            <TableRow>
+              <TableCell>
+                {rules.id}. {rules.desc}
+              </TableCell>
+            </TableRow>
           ))}
-        </ul>
+        </Table>
       </div>
     );
 }

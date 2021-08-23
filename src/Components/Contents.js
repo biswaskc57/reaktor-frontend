@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
+import Rules from "./Rules";
 const Contents = ({ contents, chapters }) => {
   const [chapterTest, setChapterTest] = useState([]);
-
+  const chapter = chapters;
   const content = contents;
   console.log(content);
 
@@ -22,6 +22,7 @@ const Contents = ({ contents, chapters }) => {
           <li>
             {title.desc}{" "}
             <button onClick={() => ruleHandler(title.id)}>show rules</button>
+            <Rules chapter={chapterTest} />
           </li>
         ))}
       </ol>
