@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
-
+import { Switch, Route, Link } from "react-router-dom";
 import Chapters from "./Components/Chapters";
 import Contents from "./Components/Contents";
 import { parseRules } from "./controllers/Rules";
