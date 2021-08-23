@@ -1,4 +1,5 @@
 //Parsing
+
 function parseRules(data) {
   const regexRules = /^((\d+\.\d+[\w]?[.]?)\s(.*))/gm;
   var rules = [];

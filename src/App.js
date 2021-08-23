@@ -12,7 +12,6 @@ function App() {
   const [subChapters, setSubChapters] = useState([]);
   const [rules, setRules] = useState([]);
   const [subRules, setSubRules] = useState([]);
-  const [on, setOn] = useState(false);
 
   const url =
     "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
@@ -30,7 +29,6 @@ function App() {
       setChapters(parseChapters(data));
       setSubChapters(parseSubChapters(data));
       setSubRules(parseSubRules(data));
-      setOn(true);
     };
 
     fetchData();
