@@ -19,7 +19,13 @@ function App() {
     "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
 
   async function getText(url) {
-    const textData = (await fetch(url)).text();
+    const textData = (
+      await fetch(url, {
+        headers: {
+          "Content-Type": "text/plain",
+        },
+      })
+    ).text();
     return textData;
   }
 
