@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Rules from "./Components/Rules";
 import Chapters from "./Components/Chapters";
+import Contents from "./Components/Contents";
 import { parseRules } from "./controllers/Rules";
 import { parseSubRules } from "./controllers/Subrules";
 import { parseChapters } from "./controllers/Chapters";
@@ -13,7 +14,6 @@ function App() {
   const [chapters, setChapters] = useState([]);
   const [rules, setRules] = useState([]);
   const [subRules, setSubRules] = useState([]);
-  const [chapterTest, setChapterTest] = useState([]);
 
   const url =
     "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
@@ -35,21 +35,10 @@ function App() {
 
     fetchData();
   }, []);
-
   console.log(rules);
   console.log(subRules);
   console.log(contents);
   console.log(chapters);
-
-  function ruleHandler(id) {
-    setChapterTest(
-      chapters.filter((chapter) => chapter.id.slice(0, 1)[0] === id)
-    );
-    console.log(chapterTest);
-
-    console.log(id);
-  }
-  console.log(chapterTest);
 
   /*if (on === true) {
     const subChaptersTest = subChapters.filter(
@@ -62,15 +51,7 @@ function App() {
 
   return (
     <div>
-      <ol>
-        {contents.map((chapter) => (
-          <li>
-            {chapter.desc}{" "}
-            <button onClick={() => ruleHandler(chapter.id)}>show rules</button>
-            <Chapters chapter={chapterTest} />
-          </li>
-        ))}
-      </ol>
+      <Contents contents={contents} chapters={chapters} />
     </div>
   );
 }

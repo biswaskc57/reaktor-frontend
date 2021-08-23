@@ -4,7 +4,7 @@ function parseSubRules(data) {
   var subRule = regexRules.exec(data);
   console.log(subRule);
   while (subRule != null) {
-    subRules.push({ id: subRule[2], desc: subRule[3] });
+    subRules.push({ id: subRule[1], desc: subRule[3] });
     subRule = regexRules.exec(data);
   }
   console.log(subRules);
