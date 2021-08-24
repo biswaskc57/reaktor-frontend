@@ -17,10 +17,14 @@ const Contents = ({ contents, chapters, title, rules }) => {
   const hideVisible = () => {
     return (
       <div style={hideWhenVisible} className="defaultBlog">
-        <li>
-          {title.desc}{" "}
-          <button onClick={() => ruleHandler(title.id)}> Chapters</button>
-        </li>
+        <strong>
+          <p>
+            {title.id}
+            {". "}
+            {title.desc}{" "}
+            <button onClick={() => ruleHandler(title.id)}> Chapters</button>
+          </p>
+        </strong>
       </div>
     );
   };

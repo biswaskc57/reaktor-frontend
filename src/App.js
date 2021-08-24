@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
-
+import { Table, TableCell, TableRow } from "@material-ui/core";
 import Contents from "./Components/Contents";
 import { parseRules } from "./controllers/Rules";
 import { parseSubRules } from "./controllers/Subrules";
@@ -40,18 +40,32 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Table of Content:</h1>
-      <ol>
-        {contents.map((title) => (
-          <Contents
-            contents={contents}
-            chapters={chapters}
-            title={title}
-            rules={rules}
-          />
-        ))}
-      </ol>
+    <div class="App">
+      <div class="Topic">
+        <h1>Magic: The Gatherings rule:</h1>
+      </div>
+      <div class="search">
+        <input type="text"></input>
+        <button type="submit">Search</button>
+      </div>
+      <div class="Contents">
+        <h2>Table of Content:</h2>
+
+        <Table>
+          {contents.map((title) => (
+            <TableRow>
+              <TableCell>
+                <Contents
+                  contents={contents}
+                  chapters={chapters}
+                  title={title}
+                  rules={rules}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
+        </Table>
+      </div>
     </div>
   );
 }
