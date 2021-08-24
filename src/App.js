@@ -44,9 +44,13 @@ function App() {
       <div class="Topic">
         <h1>Magic: The Gatherings rule:</h1>
       </div>
-      <div class="search">
-        <input type="text"></input>
-        <button type="submit">Search</button>
+      <div class="wrap">
+        <div class="search">
+          <input type="text" class="searchTerm" id="input_text"></input>
+          <button type="submit" class="searchButton">
+            Search
+          </button>
+        </div>
       </div>
       <div class="Contents">
         <h2>Table of Content:</h2>
