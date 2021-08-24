@@ -12,6 +12,7 @@ function App() {
   const [contents, setContents] = useState([]);
   const [chapters, setChapters] = useState([]);
   const [rules, setRules] = useState([]);
+  const [search, setSearch] = useState("");
 
   const url =
     "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
@@ -46,7 +47,12 @@ function App() {
       </div>
       <div class="wrap">
         <div class="search">
-          <input type="text" class="searchTerm" id="input_text"></input>
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Search not working atm"
+            value={search}
+          ></input>
           <button type="submit" class="searchButton">
             Search
           </button>
