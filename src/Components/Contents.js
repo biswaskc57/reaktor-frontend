@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Chapters from "./Chapters";
-const Contents = ({ contents, chapters, title }) => {
+const Contents = ({ contents, chapters, title, rules }) => {
   const [chapterTest, setChapterTest] = useState([]);
-  const chapter = chapters;
-  const content = contents;
+
   const [loginVisible, setLoginVisible] = useState(false);
   const hideWhenVisible = { display: loginVisible ? "none" : "" };
   const showWhenVisible = { display: loginVisible ? "" : "none" };
-  console.log(content);
 
   function ruleHandler(id) {
     setChapterTest(
@@ -21,7 +19,7 @@ const Contents = ({ contents, chapters, title }) => {
       <div style={hideWhenVisible} className="defaultBlog">
         <li>
           {title.desc}{" "}
-          <button onClick={() => ruleHandler(title.id)}>show rules</button>
+          <button onClick={() => ruleHandler(title.id)}> Chapters</button>
         </li>
       </div>
     );
@@ -32,8 +30,8 @@ const Contents = ({ contents, chapters, title }) => {
       <div style={showWhenVisible}>
         <li>
           {title.desc}{" "}
-          <button onClick={() => ruleHandler(title.id)}>Show Chapters</button>
-          <Chapters chapter={chapterTest} />
+          <button onClick={() => ruleHandler(title.id)}>Hide</button>
+          <Chapters chapter={chapterTest} rules={rules} />
         </li>
       </div>
     );
