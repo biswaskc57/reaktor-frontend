@@ -4,7 +4,6 @@ import "./App.css";
 import { Table, TableCell, TableRow } from "@material-ui/core";
 import Contents from "./Components/Contents";
 import { parseRules } from "./controllers/Rules";
-import { parseSubRules } from "./controllers/Subrules";
 import { parseChapters } from "./controllers/Chapters";
 import { parseContents } from "./controllers/Contents";
 
@@ -58,24 +57,27 @@ function App() {
           </button>
         </div>
       </div>
-      <div class="Contents">
-        <h2>Table of Content:</h2>
 
-        <Table>
-          {contents.map((title) => (
+      <h2>Table of Content:</h2>
+
+      <Table>
+        {contents.map((title) => (
+          <div class="table-row">
             <TableRow>
               <TableCell>
-                <Contents
-                  contents={contents}
-                  chapters={chapters}
-                  title={title}
-                  rules={rules}
-                />
+                <div class="contents">
+                  <Contents
+                    contents={contents}
+                    chapters={chapters}
+                    title={title}
+                    rules={rules}
+                  />
+                </div>
               </TableCell>
             </TableRow>
-          ))}
-        </Table>
-      </div>
+          </div>
+        ))}
+      </Table>
     </div>
   );
 }

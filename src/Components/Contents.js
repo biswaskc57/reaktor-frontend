@@ -1,13 +1,17 @@
+import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import Chapters from "./Chapters";
-const Contents = ({ contents, chapters, title, rules }) => {
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import "../App.css";
+const Contents = ({ chapters, title, rules }) => {
   const [chapterTest, setChapterTest] = useState([]);
 
   const [loginVisible, setLoginVisible] = useState(false);
   const hideWhenVisible = { display: loginVisible ? "none" : "" };
   const showWhenVisible = { display: loginVisible ? "" : "none" };
 
-  function ruleHandler(id) {
+  function chapterHandler(id) {
     setChapterTest(
       chapters.filter((chapter) => chapter.id.slice(0, 1)[0] === id)
     );
@@ -19,10 +23,14 @@ const Contents = ({ contents, chapters, title, rules }) => {
       <div style={hideWhenVisible} className="defaultBlog">
         <strong>
           <p>
-            {title.id}
-            {". "}
-            {title.desc}{" "}
-            <button onClick={() => ruleHandler(title.id)}> Chapters</button>
+            <Button onClick={() => chapterHandler(title.id)}>
+              <strong>
+                {title.id}
+                {". "}
+                {title.desc}
+              </strong>
+              <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+            </Button>
           </p>
         </strong>
       </div>
@@ -32,11 +40,22 @@ const Contents = ({ contents, chapters, title, rules }) => {
   const showVisible = () => {
     return (
       <div style={showWhenVisible}>
-        <li>
-          {title.desc}{" "}
-          <button onClick={() => ruleHandler(title.id)}>Hide</button>
+        <p>
+          <span>
+            {" "}
+            <div class="chapter">
+              <Button onClick={() => chapterHandler(title.id)}>
+                <strong>
+                  {title.id}
+                  {". "}
+                  {title.desc}
+                </strong>
+                <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+              </Button>
+            </div>
+          </span>
           <Chapters chapter={chapterTest} rules={rules} />
-        </li>
+        </p>
       </div>
     );
   };

@@ -1,9 +1,8 @@
-import { Table, TableCell, TableRow, Button } from "@material-ui/core";
 import React from "react";
 import { useState } from "react";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
+import { Button } from "@material-ui/core";
 import RuleList from "./RuleList";
 export default function Rules({ id, desc, rules }) {
   const [rule, setRules] = useState([]);
@@ -24,24 +23,24 @@ export default function Rules({ id, desc, rules }) {
 
   const hideVisible = () => {
     return (
-      <div style={hideWhenVisible} className="defaultBlog">
-        {id}.{desc}
-        <KeyboardArrowDownIcon
-          style={{ color: "red" }}
-          onClick={() => ruleHandler(id)}
-        ></KeyboardArrowDownIcon>
+      <div style={hideWhenVisible}>
+        <Button onClick={() => ruleHandler(id)}>
+          {id}.{desc}
+          <KeyboardArrowDownIcon
+            style={{ color: "red" }}
+          ></KeyboardArrowDownIcon>
+        </Button>
       </div>
     );
   };
 
   const showVisible = () => {
     return (
-      <div style={showWhenVisible} className="defaultBlog">
-        {id}.{desc}
-        <KeyboardArrowUpIcon
-          onClick={() => ruleHandler(id)}
-          style={{ color: "red" }}
-        ></KeyboardArrowUpIcon>
+      <div style={showWhenVisible}>
+        <Button onClick={() => ruleHandler(id)}>
+          {id}.{desc}
+          <KeyboardArrowUpIcon style={{ color: "red" }}></KeyboardArrowUpIcon>
+        </Button>
         {rule.map((rule) => (
           <RuleList rule={rule} />
         ))}
