@@ -40,22 +40,20 @@ const Contents = ({ chapters, title, rules }) => {
   const showVisible = () => {
     return (
       <div style={showWhenVisible}>
-        <p>
+        <div class="chapter">
           <span>
             {" "}
-            <div class="chapter">
-              <Button onClick={() => chapterHandler(title.id)}>
-                <strong>
-                  {title.id}
-                  {". "}
-                  {title.desc}
-                </strong>
-                <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
-              </Button>
-            </div>
+            <Button onClick={() => chapterHandler(title.id)}>
+              <strong>
+                {title.id}
+                {". "}
+                {title.desc}
+              </strong>
+              <KeyboardArrowUpIcon></KeyboardArrowUpIcon>
+            </Button>
           </span>
-          <Chapters chapter={chapterTest} rules={rules} />
-        </p>
+        </div>
+        <Chapters chapter={chapterTest} rules={rules} />
       </div>
     );
   };
