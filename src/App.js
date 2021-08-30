@@ -35,7 +35,7 @@ function App() {
   };
 
   const url =
-    "https://cors-anywhere.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
+    "https://whispering-gorge-99066.herokuapp.com/https://media.wizards.com/2021/downloads/MagicCompRules%2020210419.txt";
 
   async function getText(url) {
     const textData = (
